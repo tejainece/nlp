@@ -4,7 +4,12 @@ import 'package:nlp/nlp.dart';
 /// Inspired by:
 /// https://chatbotslife.com/text-classification-using-algorithms-e4d50dcba45
 main() {
-  var bayes = new NaiveBayes(lancaster, tokenizeEnglish)
+  var bayes = new NaiveBayes(
+    lancaster,
+    removeEnglishStopwords(
+      tokenizeEnglish,
+    ),
+  )
     ..teach('greeting', [
       'how are you?',
       'how is your day?',
@@ -28,7 +33,7 @@ main() {
   while (true) {
     stdout.write('Enter some text: ');
     var line = stdin.readLineSync();
-    var className = bayes.classify(line, 0.5);
+    var className = bayes.classify(line, 0.0);
 
     switch (className) {
       case 'greeting':

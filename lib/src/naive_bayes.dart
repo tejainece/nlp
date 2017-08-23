@@ -48,11 +48,11 @@ class NaiveBayes extends Bayes {
       });
 
       var commonality = occurrences / totalProbabilities;
-      var commonalityFactor = 1 / commonality;
+      var commonalityFactor = 1 * commonality;
 
       for (var key in influence.keys) {
         probabilities.putIfAbsent(key, () => 0.0);
-        probabilities[key] += influence[key] / commonalityFactor;
+        probabilities[key] += influence[key] * commonalityFactor;
       }
     }
 

@@ -1,4 +1,5 @@
 export 'src/bayes.dart';
+export 'src/english_stopwords.dart';
 export 'src/english_tokenizer.dart';
 export 'src/lancaster.dart';
 export 'src/naive_bayes.dart';
